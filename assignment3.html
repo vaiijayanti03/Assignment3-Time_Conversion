@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Assignment 3</title>
+</head>
+<body>
+    <div class="container"><br/><br/><br/>
+        <div class="row">
+                <div class="col-lg-4">
+                    Please Enter Date and Time
+                    <!-- <input type="datetime" id="txtdate" name="txtdate" class="form-control" min="2018-06-07T00:00" max="2018-06-14T00:00" value="2019-06-17T00:00"> -->
+                    <input type="datetime-local" id="txtdate" name="txtdate" class="form-control">
+                </div>
+                <div class="col-lg-4">
+                    Select TimeZone
+                    <select id="txtselect" name="txtselect" class="form-control">
+                        <option value="est">EST (UTC +9:30)</option>
+                        <option value="cet">CET (UTC -4:30)</option>
+                        <option value="pst">PST (UTC -12:30)</option>
+                        <option value="cdt">CDT (UTC -10:30)</option>
+                        <option value="cest">CEST (UTC -3:30)</option>
+                        <option value="bst">BST (UTC -4:30)</option>
+                        <option value="gst">GST (UTC -1:30)</option>
+                        <option value="jst">JST (UTC +3:30)</option>
+                    </select>
+                </div>
+        </div><br/><br/>
+        <div class="row">
+            <div class="col-lg-2">
+                Converted IST Time :-         
+            </div>
+            <div class="col-lg-4">
+                <input type="text" id="txtconvert" name="txtconvert" class="form-control">
+            </div>
+            <div class="col-lg-2">
+                <button id="btn" name="btn" type="button" class="btn btn-primary" onclick="calc()">CONVERT</button>
+            </div>
+        </div><br/><br/>
+        <div class="row">
+            <div class="col-lg-8">
+                <label>Current Time Zone :-  </label>&nbsp;&nbsp;
+                <label id="lblctz"></label><br/>
+                <label>Screen Resolution :-  </label>&nbsp;&nbsp;
+                <label id="lblsr"></label><br/>
+                <label>Device Pixel Ratio :-  </label>&nbsp;&nbsp;
+                <label id="lbldpr"></label><br/>
+                <label>Browser Information :-  </label>&nbsp;&nbsp;
+                <label id="lblbi"></label><br/>
+                <label>IP Address :-  </label>&nbsp;&nbsp;
+                <label id="lblipa"></label><br/>
+                <label>Device / OS :-  </label>&nbsp;&nbsp;
+                <label id="lbldos"></label><br/>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="assignment3.js"></script>
+<script type="application/javascript">
+    function getIP(json) {
+    document.getElementById("lblipa").innerHTML= json.ip;
+    }
+    </script>
+<script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
